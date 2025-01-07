@@ -2,19 +2,28 @@ package org.example;
 
 public class AlphabetCipher {
 
-    private static char[][] createCipherTable() {
+    public static char[][] createCipherTable() {
+        return generateCipherTable();
+    }
+
+    private static char[][] generateCipherTable() {
         char[][] table = new char[26][26];
         for (int i = 0; i < 26; i++) {
             for (int j = 0; j < 26; j++) {
                 table[i][j] = (char) ('a' + (i + j) % 26);
-//                System.out.print(table[i][j] = (char) ('a' + (i + j) % 26));
             }
-//            System.out.println();
         }
         return table;
     }
 
-    private static String repeatKeyword(String keyword, int length) {
+    public static String repeatKeyword(String keyword, int length) {
+        if (keyword.isEmpty()) {
+            throw new IllegalArgumentException("Keyword가 입력되지 않았습니다.");
+        }
+        return secretKeyword(keyword, length);
+    }
+
+    private static String secretKeyword(String keyword, int length) {
         StringBuilder repeated = new StringBuilder();
         while (repeated.length() < length) {
             repeated.append(keyword);
@@ -58,8 +67,8 @@ public class AlphabetCipher {
     }
 
     public static void main(String[] args) {
-        String message = "specialteachergun";
-        String keyword = "goodteacher";
+        String message = "iloveyou";
+        String keyword = "metoo";
 
         String encrypted = encrypt(message, keyword);
         System.out.println("Encrypted Message: " + encrypted);
