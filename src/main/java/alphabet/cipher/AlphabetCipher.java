@@ -1,4 +1,4 @@
-package org.example;
+package alphabet.cipher;
 
 public class AlphabetCipher {
 

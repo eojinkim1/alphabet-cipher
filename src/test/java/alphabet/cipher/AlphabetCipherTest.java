@@ -1,6 +1,5 @@
 package alphabet.cipher;
 
-import org.example.AlphabetCipher;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
