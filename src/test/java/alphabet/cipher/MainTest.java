@@ -31,6 +31,15 @@ public class MainTest {
     }
 
     @Test
+    void testShortAndLongKeywords() {
+        String keyword = KeywordUtil.repeatKeyword("keyword", 10);
+        assertEquals("keywordkey", keyword);
+
+        keyword = KeywordUtil.repeatKeyword("keyword", 3);
+        assertEquals("key", keyword);
+    }
+
+    @Test
     void testEdgeCases() {
         // 빈 문자열 암호화/복호화 확인
         assertEquals("", encryption.encrypt("", "key"));
